@@ -1,10 +1,30 @@
-/* RU: подпись ИИ-обработки читаема поверх любого кадра, в том числе на мобильных экранах. */
+/* RU: ненавязчивая, но читаемая пометка ИИ-обработки поверх одобренных игровых кадров. */
 figure[class*="_photo_"] figcaption {
-  position:absolute;bottom:12px;left:12px;right:auto;max-width:calc(100% - 24px);
-  padding:7px 10px;border:1px solid rgba(255,255,255,.28);border-radius:5px;
-  background:rgba(10,10,18,.92);color:#fff;font-size:11px;line-height:1.5;
-  letter-spacing:.01em;overflow-wrap:anywhere;pointer-events:none;z-index:2
+  position: absolute;
+  bottom: 9px;
+  left: 9px;
+  right: auto;
+  max-width: calc(100% - 18px);
+  padding: 4px 7px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 5px;
+  background: rgba(10,10,18,.55);
+  color: rgba(255,255,255,.95);
+  font-size: 9px;
+  line-height: 1.35;
+  letter-spacing: .005em;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  z-index: 2;
+  backdrop-filter: blur(2px);
 }
-@media(max-width:600px){
- figure[class*="_photo_"] figcaption {font-size:9px;bottom:8px;left:8px;padding:5px 7px;max-width:calc(100% - 16px)}
+@media (max-width: 600px) {
+  figure[class*="_photo_"] figcaption {
+    bottom: 6px;
+    left: 6px;
+    max-width: calc(100% - 12px);
+    padding: 3px 5px;
+    font-size: 8px;
+    line-height: 1.3;
+  }
 }
