@@ -1,0 +1,49 @@
+/* RU: статусы отправки FormSubmit для тёмной и светлой темы. */
+.fol-feedback-status {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(159, 165, 182, .36);
+  background: rgba(105, 111, 135, .10);
+  font-size: 13px;
+  line-height: 1.5;
+  color: inherit;
+}
+.fol-feedback-status p { margin: 0; }
+.fol-feedback-status--sending { border-color: rgba(119, 153, 217, .52); }
+.fol-feedback-status--success {
+  border-color: rgba(91, 177, 128, .7);
+  background: rgba(65, 144, 99, .12);
+}
+.fol-feedback-status--error {
+  border-color: rgba(219, 139, 93, .7);
+  background: rgba(182, 96, 65, .12);
+}
+.fol-feedback-status__hint {
+  margin-top: 7px !important;
+  font-size: 12px;
+  opacity: .8;
+}
+.fol-feedback-fallback {
+  display: inline-block;
+  margin-top: 11px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 9px 12px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: left;
+}
+.fol-feedback-fallback:hover { background: rgba(137, 137, 137, .12); }
+.fol-feedback-fallback:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .fol-feedback-status { font-size: 12px; padding: 10px; }
+  .fol-feedback-fallback { width: 100%; text-align: center; }
+}
