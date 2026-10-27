@@ -70,14 +70,19 @@
 
   function draftText(form, t) {
     const values = new FormData(form);
-    return [
+    const lines = [
       t.name + ': ' + (values.get('name') || ''),
       t.email + ': ' + (values.get('email') || ''),
       t.topic + ': ' + (values.get('topic') || ''),
-      '',
-      t.message + ':',
-      values.get('message') || '',
-    ].join('\n');
+    ];
+    // Сохраняем также технические поля Tracker, если AJAX недоступен.
+    const technical = document.documentElement.lang === 'en'
+      ? { mod_version: 'Mod version', minecraft_version: 'Minecraft version', fabric_loader: 'Fabric Loader', os: 'OS', reproduction_steps: 'Steps', expected_behavior: 'Expected', actual_behavior: 'Actual', frequency: 'Frequency', evidence_url: 'Evidence URL' }
+      : { mod_version: 'Версия мода', minecraft_version: 'Версия Minecraft', fabric_loader: 'Fabric Loader', os: 'ОС', reproduction_steps: 'Шаги', expected_behavior: 'Ожидалось', actual_behavior: 'Произошло', frequency: 'Частота', evidence_url: 'Ссылка' };
+    for (const [key, label] of Object.entries(technical)) {
+      if (values.has(key) && values.get(key)) lines.push(label + ': ' + values.get(key));
+    }
+    return lines.concat('', t.message + ':', values.get('message') || '').join('\n');
   }
 
   function showAlternatives(form, region, t) {
